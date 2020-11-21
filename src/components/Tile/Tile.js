@@ -8,7 +8,11 @@ const Tile = (props) => {
     const style = isSelected ? { backgroundColor: color } : null;
 
     return (
-        <div style={style} className="Tile">
+        <div
+            style={style}
+            className="Tile"
+            onClick={() => props.handleTileClicked(props.id, props.color)}
+        >
             {isSelected ? <Svg /> : null}
         </div>
     );
