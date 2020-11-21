@@ -1,18 +1,22 @@
-import React from 'react'
+import React from 'react';
+
+import Tile from '../Tile';
+
 import './Board.css';
 
 const Board = (props) => {
+    const gridConfig = {
+        gridTemplateColumns: `repeat(${Math.sqrt(props.numTiles)}, 1fr)`,
+        gridTemplateRows: `repeat(${Math.sqrt(props.numTiles)}, 1fr)`,
+    };
 
-  const gridConfig = {
-    gridTemplateColumns: `repeat(${Math.sqrt(props.numTiles)}, 1fr)`,
-    gridTemplateRows: `repeat(${Math.sqrt(props.numTiles)}, 1fr)`,
-  }
+    return (
+        <div className="Board" style={gridConfig}>
+            {props.tiles.map((tile, index) => (
+                <Tile key={index} {...tile} />
+            ))}
+        </div>
+    );
+};
 
-
-  return (
-    <div className='Board' style={gridConfig}>
-    </div>
-  )
-}
-
-export default Board
+export default Board;
